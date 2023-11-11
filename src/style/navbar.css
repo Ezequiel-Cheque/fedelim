@@ -1,0 +1,63 @@
+.div-menu {
+    width: 100%;
+    background-color: #000;
+}
+
+.list-menu {
+    list-style: none;
+    color: white;
+    width: 80%;
+    margin: auto;
+    padding: 0;
+}
+
+.list-menu li {
+    width: 122px;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px;
+    text-align: center;
+    font: normal normal normal 17px/1.4em dinneuzeitgroteskltw01-_812426,sans-serif;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.list-menu li:hover {
+    color: #000;
+    background-color: #fefefe;
+    animation-duration: 0.5;
+}
+
+.div-logo {
+    background-color: #000;
+    max-height: 135px;
+}
+
+.logo {
+    color: #fff;
+    width: 80%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+}
+
+.logo .div-img {
+    width: 135px;
+    display: block
+}
+
+.logo .div-img img {
+    width: 100%;
+    display: block;
+}
+
+.logo .div-title {
+    margin-left: 20px;
+    font-size: 28px;
+    font-weight: 500;
+    align-self: center;
+}
+
+.navbar-brand {
+    color: #fff;
+}
