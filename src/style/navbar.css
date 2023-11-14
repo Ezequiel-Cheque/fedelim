@@ -39,16 +39,21 @@
     margin: auto;
     height: 100%;
     display: flex;
+    justify-content: space-between;
 }
 
-.logo .div-img {
+.slogan-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slogan-container .div-img {
     width: 135px;
-    display: block
+    cursor: pointer;
 }
 
-.logo .div-img img {
+.slogan-container .div-img img {
     width: 100%;
-    display: block;
 }
 
 .logo .div-title {
@@ -56,6 +61,72 @@
     font-size: 28px;
     font-weight: 500;
     align-self: center;
+}
+
+/* ----- redes sociales ----- */
+
+.logo .social-buttons {
+    display: flex;
+    gap: var(--sharing-gap, 0.5rem);
+    align-self: center;
+    justify-self: end;
+}
+
+.sharing-item {
+    transition: background 0.3s, color 0.3s;
+    color: var(--sharing-color, #fff);
+    background-color: var(--sharing-bg, #000);
+    padding: var(--sharing-padding, 0.6rem);
+    border-radius: var(--sharing-radius, 0.5rem);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.1), 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+}
+.sharing-item .i {
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    transition: transform 0.3s;
+    stroke-width: 2;
+    width: var(--sharing-size, 22px);
+    height: var(--sharing-size, 22px);
+    display: block;
+}
+.sharing-item:hover {
+    background-color: #fff;
+    --sharing-color: var(--sharing-bg, #000);
+}
+.sharing-item:hover .i {
+    transform: rotate(360deg);
+}
+.sharing-facebook {
+    --sharing-bg: #1778F2 ;
+}
+.sharing-instagram{
+    --sharing-bg: #3f729b;
+}
+.sharing-twitter {
+    --sharing-bg: #55ACEE ;
+}
+.sharing-pinterest {
+    --sharing-bg: #F0002A ;
+}
+.sharing-tumblr {
+    --sharing-bg: #35465C ;
+}
+.sharing-reddit {
+    --sharing-bg: #FF4500 ;
+}
+.sharing-vk {
+    --sharing-bg: #4376A6 ;
+}
+.sharing-whatsapp {
+    --sharing-bg: #4FCE5D ;
+}
+.sharing-telegram {
+    --sharing-bg: #0088CC ;
+}
+.sharing-envelope {
+    --sharing-bg: #464EB8 ;
 }
 
 .navbar-brand {
