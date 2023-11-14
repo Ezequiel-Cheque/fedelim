@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Navbar } from '../ui/components/Navbar';
 import { Home, Info, Camp, Login } from '../pages';
+import { Footer } from '../ui/footer';
 
 export const PageRoutes = () => {
     return (
@@ -17,6 +18,7 @@ export const PageRoutes = () => {
 
                 </Routes>
             </div>
+            <Footer />
         </>
     )
 };

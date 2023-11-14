@@ -1,0 +1,42 @@
+.footer-container {
+    background-color: #102c54;
+    color: #fff;
+    border-top: 1px #fefefe solid;
+    display: flex;
+    padding: 20px 0px;
+    justify-content: center;
+}
+
+.footer-container .content-footer{
+    width: 35%;
+    font-size: 16px;
+}
+
+.unbj, .fedelim {
+    display: flex;
+}
+
+.unbj img {
+    width: 60px;
+    margin-left: -10px;
+}
+
+.fedelim img {
+    width: 50px;
+}
+
+.unbj p, .fedelim p {
+    align-self: center;
+    margin-left: 10px;
+}
+
+
+.copy-rigth {
+    display: flex;
+    width: 35%;
+    justify-content: end;
+}
+
+.copy-rigth p {
+    align-self: self-end;
+}
