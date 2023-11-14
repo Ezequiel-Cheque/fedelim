@@ -1,8 +1,12 @@
+import { Countdown } from "../ui/components/CountdownCampa";
+import '../style/home_style.css';
 
 export const Home = () => {
+    
+
     return(
-        <>
-            <h1>Home</h1>
-        </>
+        <div className="home-container">
+            <Countdown />
+        </div>
     )
 };

@@ -1,6 +1,11 @@
+.navbar-container {
+    width: 100vw;
+    height: 20vh;
+}
+
 .div-menu {
     width: 100%;
-    background-color: #000;
+    background-color: #a7c94a;
 }
 
 .list-menu {
@@ -23,21 +28,20 @@
 }
 
 .list-menu li:hover {
-    color: #000;
-    background-color: #fefefe;
+    background-color: #102c54;
     animation-duration: 0.5;
 }
 
+ /* ------ logo de elim -------- */
 .div-logo {
-    background-color: #000;
-    max-height: 135px;
+    background-color: #102c54;
+    height: 149px;
 }
 
 .logo {
     color: #fff;
     width: 80%;
     margin: auto;
-    height: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -48,7 +52,7 @@
 }
 
 .slogan-container .div-img {
-    width: 135px;
+    width: 140px;
     cursor: pointer;
 }
 

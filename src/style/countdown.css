@@ -1,0 +1,75 @@
+.countdown-container {
+    background-image: linear-gradient(to right, rgba(109, 179, 242, .2), rgba(109, 179, 242, .2)), url("../assets/camp.jpg");
+    background-repeat: no-repeat;
+    background-position: 25% 80%;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-container h1 {
+    display: block;
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+}
+
+#countdown li {
+    display: inline-block;
+    font-size: 1.5em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+}
+  
+#countdown li span {
+    display: block;
+    font-size: 4.5rem;
+}
+
+.info-button {
+    width: 165px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    color: #fefefe;
+    background-color: #007bff;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 15px 14px 6px -7px rgba(0,0,0,0.1);
+}
+
+/*  
+.countdown-container .emoji {
+    display: none;
+    padding: 1rem;
+}
+  
+.countdown-container .emoji span {
+    font-size: 4rem;
+    padding: 0 0.5rem;
+}
+
+@media all and (max-width: 768px) {
+    .countdown-container h1 {
+      font-size: calc(1.5rem * var(--smaller));
+    }
+  
+    .countdown-container li {
+      font-size: calc(1.125rem * var(--smaller));
+    }
+  
+    .countdown-container li span {
+      font-size: calc(3.375rem * var(--smaller));
+    }
+  }
+   */
