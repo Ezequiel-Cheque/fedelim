@@ -1,3 +1,95 @@
-.camp-container {
+/* .camp-container {
     height: 50vh;
+} */
+
+.campInfo {
+    /* background-color: aqua; */
+}
+.campInfo h1, .campInfo h2 {
+    text-align: center;
+    color: #444;
+    font-family: sans-serif;
+}
+
+.info-section {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.info-section .info-card {
+    width: 30%;
+    text-align: center;
+    border: solid 1px #f0f0f0;
+    padding: 10px;
+    /* box-shadow: 9px 12px 5px -6px rgba(0,0,0,0.57); */
+}
+
+.info-section .info-card p {
+    color: #757c7e;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-align: justify;
+}
+
+.info-section .info-card span {
+    background-color: aliceblue;
+    display: block;
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    color: #fff;
+    margin: 10px auto;
+    border-radius: 50px;
+    background-color: #a7c94a;
+    text-align: center;
+}
+
+.info-section .info-card span i {
+    margin-top: 12px;
+}
+
+.gallery h2 {
+    text-align: center;
+    color: #444;
+    font-family: sans-serif;
+}
+
+.gallery {
+    width: 80%;
+    margin: auto;
+}
+
+/*----- Responsive ----- */
+
+@media (max-width: 810px) {
+    .info-section {
+        width: auto;
+        display: flex;
+    }
+
+    .info-section .info-card p {
+        color: #757c7e;
+        font-size: 12px;
+    }
+
+    .info-section .info-card span {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
+    .info-section .info-card span i {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 668px) {
+    .info-section .info-card {
+        width: 100%;
+    }
 }

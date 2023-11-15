@@ -195,7 +195,7 @@
     }
 }
 
-@media (max-width: 412px) {
+@media (max-width: 486px) {
     .topnav {
         display: block;
         overflow: hidden;
