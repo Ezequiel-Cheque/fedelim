@@ -26,7 +26,7 @@ export const Camp = () => {
                             El lugar cuenta con dos cabañas, una designada a hombres, y otra designada a mujeres.
                             <br/>La capacidad de cada cabaña es de 40 personas, lo que hace que en total haya capacidad de 80 personas en las cabañas.
                             <br/><strong>Los primeros 80 jóvenes (40 hombres, 40 mujeres)</strong> en registrarse tendrán la oportunidad de hospedarse en las cabañas.
-                            <br/>Para aquellos que se registren después su hospedaje deberá ser en casa de campaña, el Campamento cuenta con una amplia zona para casas de campaña <strong>(deberás llevar tu propia casa de campaña)</strong>.
+                            <br/>Para aquellos que se registren después su hospedaje deberá ser en casa de campaña, el Campamento cuenta con una amplia zona para acampar <strong>(deberás llevar tu propia casa de campaña)</strong>.
                         </p>
                     </div>
                     <div className="info-card">
@@ -34,7 +34,7 @@ export const Camp = () => {
                             <h2>INSTALACIONES</h2>
                         <p>
                             Las instalaciones del campamento cuentan con:
-                            <br/>• Cabaña para hombres, cabaña con mujeres
+                            <br/>• Cabaña para hombres, cabaña para mujeres
                             <br/>• Baños con regaderas para hombres y para mujeres
                             <br/>• Alberca amplia
                             <br/>• Cancha de futbol
