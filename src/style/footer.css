@@ -63,3 +63,20 @@
         font-size: 12px;
     }    
 }
+
+@media (max-width: 355px) {
+    .footer-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-container .content-footer{
+        width: 95%;
+    }
+
+    .copy-rigth {
+        width: 95%;
+    }
+}
