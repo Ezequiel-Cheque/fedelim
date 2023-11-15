@@ -1,6 +1,7 @@
 .navbar-container {
     width: 100vw;
     height: 20vh;
+    border-bottom: 1px solid #fefefe;
 }
 
 .div-menu {
@@ -24,7 +25,7 @@
     text-align: center;
     font: normal normal normal 17px/1.4em dinneuzeitgroteskltw01-_812426,sans-serif;
     cursor: pointer;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .list-menu li:hover {
@@ -135,4 +136,122 @@
 
 .navbar-brand {
     color: #fff;
+}
+
+.topnav {
+    display: none;
+}
+
+
+/*  ----------- responsive -----------------  */
+
+@media (max-width: 876px) {
+    .div-logo {
+        height: 120px;
+    }
+
+    .div-logo .logo .slogan-container .div-title {
+        font-size: 25px;
+    }
+}
+
+
+@media (max-width: 876px) {
+    .navbar-container .div-logo .logo {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar-container .div-logo .logo .div-title {
+        margin-left: 20px;
+        font-weight: 500;
+    }
+
+    .navbar-container .div-logo .logo .slogan-container {
+        width: 350px;
+    }
+}
+
+
+@media (max-width: 606px) {
+    .list-menu {
+        width: 100%;
+    }
+}
+
+@media (max-width: 456px) {
+    .div-logo .logo .slogan-container .div-title {
+        font-size: 20px;
+        margin-left: 5px;
+        /* width: 150px; */
+    }
+    .sharing-item .i {
+        width: var(--sharing-size, 15px);
+        height: var(--sharing-size, 15px);
+    }
+    .list-menu li {
+        margin-right: 0px;
+        padding: 8px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 412px) {
+    .topnav {
+        display: block;
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+    }
+    .topnav #myLinks {
+        display: none;
+    }
+    /* Style navigation menu links */
+    .topnav a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }
+  
+    /* Style the hamburger menu */
+    .topnav a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+  
+    /* Add a grey background color on mouse-over */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+  
+    /* Style the active link (or home/logo) */
+    .active {
+        background-color: #a7c94a;
+        color: white;
+        height: 20px;
+    }
+
+    .div-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 386px) {
+    .logo {
+        justify-content:center;
+        flex-wrap: wrap;
+    }
+    .topnav {
+        /* margin-top: 50px; */
+    }
+
+    .div-logo {
+        height: 160px;
+    }
 }

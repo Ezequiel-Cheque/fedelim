@@ -4,6 +4,15 @@ import "../../style/navbar.css"
 export const Navbar = () => {
     const logo = "fede_logo";
 
+    const myFunction = () => {
+        const x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    };
+
     return (
         <div className='navbar-container'>
             <div className="div-logo">
@@ -42,6 +51,27 @@ export const Navbar = () => {
                         </a>
                     </div>
                 </div>
+            </div>
+            {/* ----- Burguer menu ------ */}
+            <div className="topnav">
+                <a href="#home" className="active"></a>
+                <div id="myLinks">
+                    <Link 
+                        className="navbar-brand" 
+                        to="/"
+                    ><a href="#news">Inicio</a></Link>
+                    <Link 
+                        className="navbar-brand" 
+                        to="info"
+                    ><a href="#contact">Nosotros</a></Link>
+                    <Link 
+                        className="navbar-brand" 
+                        to="camp"
+                    ><a href="#about">Campamento</a></Link>
+                </div>
+                <a href="javascript:void(0);" className="icon" onClick={myFunction}>
+                    <i className="fa fa-bars"></i>
+                </a>
             </div>
             <div className="div-menu">
                 <ul className="list-menu">
