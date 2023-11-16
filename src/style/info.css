@@ -22,6 +22,7 @@
 
 .info-text {
     max-width: 800px;
+    align-self: center;
 }
 
 @media (max-width: 999px) {

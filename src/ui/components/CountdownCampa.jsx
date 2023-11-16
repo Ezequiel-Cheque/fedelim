@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link} from 'react-router-dom';
 import '../../style/countdown.css';
 
 export const Countdown = () => {
@@ -63,7 +64,12 @@ export const Countdown = () => {
                         <li><span id="seconds"></span>Segundos</li>
                     </ul>
                 </div>
-                <button className='info-button'> Más información </button>
+                <Link
+                        className="navbar-brand" 
+                        to="/camp"
+                >
+                    <button className='info-button'> Más información </button>
+                </Link>
         </div>
     )
 };

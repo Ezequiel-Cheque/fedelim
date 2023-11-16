@@ -1,0 +1,95 @@
+.register-container {
+    width: 70%;
+    margin: 50px auto;
+    /* background-color: aqua; */
+}
+
+.register-container h2 {
+    text-align: center;
+}
+
+.menu-container {
+    height: 40vh;
+}
+
+.menu-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.menu-buttons button {
+    width: 200px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    color: #fefefe;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border: solid 1px #f0f0f0;
+    margin: 20px 0;
+}
+
+.menu-buttons button:first-child {
+    background-color: #0e813c;
+}
+
+.menu-buttons button:nth-child(2) {
+    background-color: #005eff;
+}
+
+.menu-buttons button:hover {
+    filter: brightness(1.2);
+}
+
+.form-register form, .form-payment form{
+    border: solid 2px #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-register form label, .form-payment form label {
+    display: block;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.form-register form input, .form-payment form input {
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 3px #f0f0f0;
+}
+
+.form-register form button, .form-payment form button {
+    display: block;
+    width: 150px;
+    padding: 10px 5px;
+    border-radius: 3px;
+    color: #fefefe;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: solid 1px #f0f0f0;
+}
+
+.form-register form button:first-child, .form-payment form button:first-child {
+    background-color: #005eff;
+}
+
+.form-register form button:nth-child(2), .form-payment form button:nth-child(2) {
+    background-color: #cc0000;
+}
+
+.form-register form .div-buttons, .form-payment form .div-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 30px 0 0 0;
+}

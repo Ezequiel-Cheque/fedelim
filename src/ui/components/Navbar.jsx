@@ -67,7 +67,7 @@ export const Navbar = () => {
                     ><a href="#news">Inicio</a></Link>
                     <Link 
                         className="navbar-brand" 
-                        to="info"
+                        to="about"
                     ><a href="#contact">Nosotros</a></Link>
                     <Link 
                         className="navbar-brand" 
@@ -88,7 +88,7 @@ export const Navbar = () => {
                     </Link>
                     <Link 
                         className="navbar-brand" 
-                        to="info"
+                        to="about"
                     >
                         <li>Nosotros</li>
                     </Link>
