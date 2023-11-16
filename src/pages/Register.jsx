@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../style/register.css";
 import base_api from "../utils/api_host";
-import { redirect } from "react-router-dom";
 
 import Swal from 'sweetalert2'
 import { Loader } from "../ui/components/loader";
@@ -63,11 +62,14 @@ export const FirstRegister = ({ handle_menu, handle_return }) => {
         }
     };
 
-    const register_payment = async (id_user, amount, receipt_name) => {
+    const register_payment = async (id_user, amount, receipt_name, name, last_name, email) => {
         const url = base_api+"/payments/create";
         
         const payload = {
             id_user: id_user,
+            name: name,
+            last_name: last_name,
+            email: email,
             amount: amount,
             receipt: receipt_name
         };
@@ -128,7 +130,7 @@ export const FirstRegister = ({ handle_menu, handle_return }) => {
             }
 
             // Registrar pago
-            const payment = await register_payment(user_id, e.target.amount.value, response.file_name);
+            const payment = await register_payment(user_id, e.target.amount.value, response.file_name, e.target.name.value, e.target.last_name.value, e.target.email.value);
             if (!payment) {
                 Swal.fire({
                     title: "Error",
@@ -204,9 +206,98 @@ export const FirstRegister = ({ handle_menu, handle_return }) => {
 
 export const Payment = ({ handle_menu, handle_return }) => {
 
-    const handle_submit = (e) => {
+    const [loader, setloader] = useState(false);
+
+    const upload_file = async (file) => {
+        
+        const body = new FormData();
+        
+        body.append("file", new File([file], file.name));
+
+        const upload = await fetch(base_api+"/payments/uploadfile", {
+            method: "POST",
+            body: body,
+            headers: {
+                "accept": "application/json"
+            }
+        });
+        
+        if (upload.status == 200) {
+            const upload_response = await upload.json();
+            return upload_response.data;
+        } else {
+            return false;
+        }
+    };
+
+    const handle_submit = async (e) => {
         e.preventDefault();
-        console.log(e.target);
+        setloader(true);
+        const email = e.target.email.value;
+        
+        //buscar usuario
+        const user_url = base_api + "/users/get/email/" + email;
+        const user = await fetch(user_url);
+        if (user.status != 200) {
+            Swal.fire({
+                title: "Registro no encontrado",
+                text: "No se encontro ningun primero registro asignado al correo: " + email + ". Si es tu primer registro por favor dirigete al apartado de 'Primer registro'",
+                icon: "error"
+            });
+            setloader(false);
+            handle_return();
+        }
+        const user_data = await user.json()
+        
+        const file = e.target.file.files[0];
+        upload_file(file).then(async (response) => {
+            if (!response) {
+                Swal.fire({
+                    title: "Error",
+                    text: "No podemos subir tu recibo de pago por el momento, intenta mas tarde, o comunicate por whatsapp para mas informacion",
+                    icon: "error"
+                });
+                setloader(false);
+                return;
+            }
+            //crear un pago
+            const payment_payload = {
+                id_user: user_data.data.id,
+                name: e.target.name.value,
+                last_name: e.target.last_name.value,
+                email: email,
+                amount: e.target.amount.value,
+                receipt: response.file_name
+            };
+
+            const url = base_api+"/payments/create";
+        
+            const payment = await fetch(url, {
+                method: "POST",
+                body: JSON.stringify(payment_payload),
+                headers: {
+                    "content-type": "application/json",
+                    "accept": "application/json"
+                }
+            });
+            if (payment.status != 200) {
+                Swal.fire({
+                    title: "Error",
+                    text: "No podemos registrar tu pago por el momento, intenta mas tarde, o comunicate por whatsapp para mas informacion",
+                    icon: "error"
+                });
+                setloader(false);
+                return;
+            }
+            Swal.fire({
+                title: "Registro exitoso !!",
+                text: "Su registro se realizo exitosamente",
+                icon: "success"
+            });
+            handle_return();
+        });
+
+        setloader(false);
     }
 
     return (
@@ -218,7 +309,7 @@ export const Payment = ({ handle_menu, handle_return }) => {
                 <input name="name" placeholder="Nombre" type="text" required />
                 
                 <label>Apellido</label>
-                <input name="lastName" placeholder="Apellidos" type="text" required />
+                <input name="last_name" placeholder="Apellidos" type="text" required />
                 
                 <label>Correo electrónico</label>
                 <input name="email" placeholder="Correo electronico" type="email" required />
@@ -235,10 +326,16 @@ export const Payment = ({ handle_menu, handle_return }) => {
                     accept=".jpg, .jpeg, .png"
                 />
 
-                <div className="div-buttons">
-                    <button type="submit">Enviar</button>
-                    <button name="return" onClick={handle_menu}>Cancelar</button>
-                </div>
+                {
+                    loader ? (
+                        <Loader />
+                    ) : (
+                        <div className="div-buttons">
+                            <button type="submit">Enviar</button>
+                            <button name="return" onClick={handle_menu}>Cancelar</button>
+                        </div>
+                    )
+                }
             </form>
         </div>
     )
