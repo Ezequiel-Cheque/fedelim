@@ -6,11 +6,11 @@ export const Footer = () => {
     <div className="footer-container">
         <div className='content-footer'>
             <div className='fedelim'>
-                <img src="/src/assets/circle_fede.png" alt="" />
+                <img src="/assets/circle_fede.png" alt="" />
                 <p>Federación de Jóvenes Bautistas ELIM</p>
             </div>
             <div className='unbj'>
-                <img src="/src/assets/unbj.png" alt="" />
+                <img src="/assets/unbj.png" alt="" />
                 <p>Pertenecientes a la Unión Nacional Bautista de Jóvenes/UNBJ México</p>
             </div>
         </div>
