@@ -5,7 +5,7 @@ export const Info = () => {
         <div className="info-container">
             <div className="div-info">
                 <div className="logo-info">
-                    <img src="/assets/elim_square.png" alt="" />
+                    <img src="/images/elim_square.png" alt="" />
                 </div>
                 <div className="info-text">
                     <p>

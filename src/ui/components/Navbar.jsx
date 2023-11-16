@@ -23,7 +23,7 @@ export const Navbar = () => {
                                 className="navbar-brand" 
                                 to="/"
                             >
-                                <img src={`/assets/${ logo }.png`} alt="" />
+                                <img src={`/images/${ logo }.png`} alt="" />
                             </Link>
                         </div>
                         <div className="div-title">
