@@ -1,7 +1,7 @@
 .register-container {
     width: 70%;
     margin: 50px auto;
-    /* background-color: aqua; */
+    min-height: 550px;
 }
 
 .register-container h2 {

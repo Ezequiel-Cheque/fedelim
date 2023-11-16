@@ -1,11 +1,152 @@
 import { useState } from "react";
 import "../style/register.css";
+import base_api from "../utils/api_host";
+import { redirect } from "react-router-dom";
 
-export const FirstRegister = ({ handle_menu }) => {
+import Swal from 'sweetalert2'
+import { Loader } from "../ui/components/loader";
+
+export const FirstRegister = ({ handle_menu, handle_return }) => {
+
+    const [loader, setloader] = useState(false);
     
-    const handle_submit = (e) => {
+    const upload_file = async (file) => {
+        
+        const body = new FormData();
+        
+        body.append("file", new File([file], file.name));
+
+        const upload = await fetch(base_api+"/payments/uploadfile", {
+            method: "POST",
+            body: body,
+            headers: {
+                "accept": "application/json"
+            }
+        });
+        
+        if (upload.status == 200) {
+            const upload_response = await upload.json();
+            return upload_response.data;
+        } else {
+            return false;
+        }
+    };
+
+    const register_user = async (payload) => {
+        // busca si el usuario ya esta registrado
+        const user = await fetch(base_api + "/users/get/email/" + payload.email);
+        if (user.status == 200) {
+            return {
+                error: true,
+                msg: "Este usuario ya esta registrado, si vas a abonar, selecciona la opcion 'Abonar pago' "
+            }
+        }
+
+        // Registrar usuario
+        const url = base_api+"/users/create";
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+                "content-type": "application/json",
+                "accept": "application/json"
+            }
+        });
+        if (response.status == 200) {
+            const res = await response.json();
+            return res.data;
+        } else {
+            return {
+                error: true,
+                msg: "No podemos registrarte por el momento, revisa bien tus datos, intenta mas tarde, o comunicate por whatsapp para mas informacion"
+            }
+        }
+    };
+
+    const register_payment = async (id_user, amount, receipt_name) => {
+        const url = base_api+"/payments/create";
+        
+        const payload = {
+            id_user: id_user,
+            amount: amount,
+            receipt: receipt_name
+        };
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+                "content-type": "application/json",
+                "accept": "application/json"
+            }
+        });
+        if (response.status == 200) {
+            const res = await response.json();
+            return res.data;
+        } else {
+            return false
+        }
+    };
+
+    const handle_submit = async (e) => {
+        
         e.preventDefault();
-        console.log(e.target);
+        setloader(true);
+
+        const user_payload = {
+            name: e.target.name.value,
+            last_name: e.target.last_name.value, 
+            email: e.target.email.value, 
+            phone: e.target.phone.value, 
+            age: e.target.age.value, 
+            church: e.target.church.value,
+            paid: false 
+        };
+        // Registrar Usuario
+        const user_id = await register_user(user_payload);
+        if (user_id?.error) {
+            Swal.fire({
+                title: "Error",
+                text: user_id.msg,
+                icon: "error"
+            });
+            setloader(false);
+            handle_return();
+            return;
+        }
+        
+        // Subir recibo
+        const file = e.target.file.files[0];
+        upload_file(file).then(async (response) => {
+            if (!response) {
+                Swal.fire({
+                    title: "Error",
+                    text: "No podemos subir tu recibo de pago por el momento, intenta mas tarde, o comunicate por whatsapp para mas informacion",
+                    icon: "error"
+                });
+                setloader(false);
+                return;
+            }
+
+            // Registrar pago
+            const payment = await register_payment(user_id, e.target.amount.value, response.file_name);
+            if (!payment) {
+                Swal.fire({
+                    title: "Error",
+                    text: "No podemos registrarte por el momento, revisa bien tus datos, intenta mas tarde, o comunicate por whatsapp para mas informacion",
+                    icon: "error"
+                });
+                setloader(false);
+                return;
+            }
+            Swal.fire({
+                title: "Registro exitoso !!",
+                text: "Su registro se realizo exitosamente",
+                icon: "success"
+            });
+            setloader(false);
+            handle_return();
+        });
+
     }
 
     return (
@@ -17,16 +158,16 @@ export const FirstRegister = ({ handle_menu }) => {
                 <input name="name" placeholder="Nombre" type="text" required />
                 
                 <label>Apellido</label>
-                <input name="lastName" placeholder="Apellidos" type="text" required />
+                <input name="last_name" placeholder="Apellidos" type="text" required />
                 
                 <label>Edad</label>
-                <input name="age" placeholder="Edad" type="number" min="1" max="50" step="2" required />
+                <input name="age" placeholder="Edad" type="number" min="1" max="50" required />
                 
                 <label>Nombre de tu glesia</label>
                 <input name="church" placeholder="Iglesia" type="text" required />
                 
                 <label>Teléfono</label>
-                <input name="telephone" placeholder="Telefono" type="tel" required />
+                <input name="phone" placeholder="Telefono" type="tel" required />
                 
                 <label>Correo electrónico</label>
                 <input name="email" placeholder="Correo electronico" type="email" required />
@@ -36,23 +177,32 @@ export const FirstRegister = ({ handle_menu }) => {
                 
                 <label>Captura tu recibo de pago</label>
                 <input
-                    name="receipt"
+                    name="file"
                     placeholder="Recibo de pago"
                     type="file"
                     required
                     accept=".jpg, .jpeg, .png"
                 />
 
-                <div className="div-buttons">
-                    <button type="submit">Enviar</button>
-                    <button name="return" onClick={handle_menu}>Cancelar</button>
-                </div>
+                {
+                    loader ? (
+                        <Loader />
+                    ) : (
+                        <div className="div-buttons">
+                            <button type="submit">Enviar</button>
+                            <button name="return" onClick={handle_menu}>Cancelar</button>
+                        </div>
+                    )
+                }
             </form>
         </div>
     )
 };
 
-export const Payment = ({ handle_menu }) => {
+
+
+
+export const Payment = ({ handle_menu, handle_return }) => {
 
     const handle_submit = (e) => {
         e.preventDefault();
@@ -78,7 +228,7 @@ export const Payment = ({ handle_menu }) => {
                 
                 <label>Captura tu recibo de pago</label>
                 <input
-                    name="receipt"
+                    name="file"
                     placeholder="Recibo de pago"
                     type="file"
                     required
@@ -102,6 +252,10 @@ const Initial_menu = {
 export const Register = () => {
     
     const [menu, setMenu] = useState(Initial_menu);
+
+    const handle_return = () => {
+        setMenu(Initial_menu);
+    };
 
     const handle_menu = (e) => {
         const form = e.target.name;
@@ -133,6 +287,7 @@ export const Register = () => {
                 (menu?.selected && menu?.form == "first_register") && (
                     <FirstRegister
                         handle_menu={handle_menu}
+                        handle_return={handle_return}
                     />
                 ) 
             }
@@ -140,6 +295,7 @@ export const Register = () => {
                 (menu?.selected && menu?.form == "payment") && (
                     <Payment
                         handle_menu={handle_menu}
+                        handle_return={handle_return}
                     />
                 ) 
             }

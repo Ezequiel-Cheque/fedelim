@@ -1,5 +1,5 @@
 .info-container {
-    /* height: 50vh; */
+    min-height: 600px;
 }
 
 .div-info {
