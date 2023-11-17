@@ -12,7 +12,8 @@ const register_payment = async (payload, firstpayment = true) => {
         headers: {
             "content-type": "application/json",
             "accept": "application/json",
-            "mode": 'no-cors'
+            "mode": 'no-cors',
+            "access-control-allow-origin": "*"
         }
     });
     if (response.status == 200) {
@@ -44,7 +45,8 @@ const deletePayment = async (payment_id) => {
         method: "DELETE",
         headers: {
             'accept': 'application/json',
-            "mode": 'no-cors'
+            "mode": 'no-cors',
+            "access-control-allow-origin": "*"
         }
     });
     if (delete_payment.status == 200) {
