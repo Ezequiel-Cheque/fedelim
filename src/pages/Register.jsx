@@ -159,7 +159,7 @@ export const FirstRegister = ({ handle_menu, handle_return }) => {
                 <label>Nombre(s)</label>
                 <input name="name" placeholder="Nombre" type="text" required />
                 
-                <label>Apellido</label>
+                <label>Apellidos</label>
                 <input name="last_name" placeholder="Apellidos" type="text" required />
                 
                 <label>Edad</label>
