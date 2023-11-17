@@ -14,10 +14,7 @@ const regiister_receipt = async(file, id_payment) => {
         body: JSON.stringify(payload),
         headers: {
             'Content-Type': 'application/json',
-            "accept": "application/json",
-            "mode": 'no-cors',
-            "access-control-allow-origin": "*",
-            "referrerPolicy": 'no-referrer'
+            "accept": "application/json"
         }
     });
     if (register.status == 200){
@@ -36,10 +33,7 @@ const upload_file = async (file, id_payment, id_user, firstpayment = true) => {
         method: "POST",
         body: body,
         headers: {
-            "accept": "application/json",
-            "mode": 'no-cors',
-            "access-control-allow-origin": "*",
-            "referrerPolicy": 'no-referrer'
+            "accept": "application/json"
         }
     });
     
