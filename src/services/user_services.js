@@ -3,7 +3,11 @@ import Swal from 'sweetalert2';
 
 const findUser = async (email) => {
     // busca si el usuario ya esta registrado
-    const user = await fetch(base_api + "/users/get/email/" + email);
+    const user = await fetch(base_api + "/users/get/email/" + email,{
+        headers: {
+            "Referrer-Policy": "no-referrer"
+        }
+    });
     if (user.status == 200) {
         const res = await user.json();
         return {
@@ -25,7 +29,11 @@ const findUser = async (email) => {
 
 const registerUser = async (payload) => {
     // busca si el usuario ya esta registrado
-    const user = await fetch(base_api + "/users/get/email/" + payload.email);
+    const user = await fetch(base_api + "/users/get/email/" + payload.email,{
+        headers: {
+            "Referrer-Policy": "no-referrer"
+        }
+    });
     if (user.status == 200) {
         Swal.fire({
             title: "Error",
@@ -46,9 +54,7 @@ const registerUser = async (payload) => {
         headers: {
             "content-type": "application/json",
             "accept": "application/json",
-            "access-control-allow-origin": "*",
-            "mode": 'no-cors',
-            "referrerPolicy": 'no-referrer'
+            "Referrer-Policy": "no-referrer"
         }
     });
     if (response.status == 200) {
@@ -75,7 +81,8 @@ const deleteUser = async (user_id) => {
     const delete_user = await fetch(url, {
         method: "DELETE",
         headers: {
-            'accept': 'application/json'
+            'accept': 'application/json',
+            "Referrer-Policy": "no-referrer"
         }
     });
     if (delete_user.status == 200) {

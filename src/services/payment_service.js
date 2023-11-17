@@ -11,7 +11,8 @@ const register_payment = async (payload, firstpayment = true) => {
         body: JSON.stringify(payload),
         headers: {
             "content-type": "application/json",
-            "accept": "application/json"
+            "accept": "application/json",
+            "Referrer-Policy": "no-referrer"
         }
     });
     if (response.status == 200) {
@@ -42,7 +43,8 @@ const deletePayment = async (payment_id) => {
     const delete_payment = await fetch(url, {
         method: "DELETE",
         headers: {
-            'accept': 'application/json'
+            'accept': 'application/json',
+            "Referrer-Policy": "no-referrer"
         }
     });
     if (delete_payment.status == 200) {
