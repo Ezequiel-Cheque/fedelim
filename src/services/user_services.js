@@ -6,7 +6,8 @@ const findUser = async (email) => {
     const user = await fetch(base_api + "/users/get/email/" + email, {
         headers: {
             "access-control-allow-origin": "*",
-            "mode": 'no-cors'
+            "mode": 'no-cors',
+            "referrerPolicy": 'no-referrer'
         }
     });
     if (user.status == 200) {
@@ -33,7 +34,8 @@ const registerUser = async (payload) => {
     const user = await fetch(base_api + "/users/get/email/" + payload.email, {
         headers: {
             "access-control-allow-origin": "*",
-            "mode": 'no-cors'
+            "mode": 'no-cors',
+            "referrerPolicy": 'no-referrer'
         }
     });
     if (user.status == 200) {
@@ -57,7 +59,8 @@ const registerUser = async (payload) => {
             "content-type": "application/json",
             "accept": "application/json",
             "access-control-allow-origin": "*",
-            "mode": 'no-cors'
+            "mode": 'no-cors',
+            "referrerPolicy": 'no-referrer'
         }
     });
     if (response.status == 200) {
@@ -86,7 +89,8 @@ const deleteUser = async (user_id) => {
         headers: {
             'accept': 'application/json',
             "mode": 'no-cors',
-            "access-control-allow-origin": "*"
+            "access-control-allow-origin": "*",
+            "referrerPolicy": 'no-referrer'
         }
     });
     if (delete_user.status == 200) {

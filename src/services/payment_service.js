@@ -13,7 +13,8 @@ const register_payment = async (payload, firstpayment = true) => {
             "content-type": "application/json",
             "accept": "application/json",
             "mode": 'no-cors',
-            "access-control-allow-origin": "*"
+            "access-control-allow-origin": "*",
+            "referrerPolicy": 'no-referrer'
         }
     });
     if (response.status == 200) {
@@ -46,7 +47,8 @@ const deletePayment = async (payment_id) => {
         headers: {
             'accept': 'application/json',
             "mode": 'no-cors',
-            "access-control-allow-origin": "*"
+            "access-control-allow-origin": "*",
+            "referrerPolicy": 'no-referrer'
         }
     });
     if (delete_payment.status == 200) {
