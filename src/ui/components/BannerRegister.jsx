@@ -10,8 +10,10 @@ export const Banner = () => {
                 className="navbar-brand" 
                 to="/register"
             > */}
-                <button>Registro</button>
             {/* </Link> */}
+            <a href="https://forms.gle/jCN12BA3W6nkANLE6" target="_blank">
+                <button>Registro</button>
+            </a>
         </div>
     );
 };
