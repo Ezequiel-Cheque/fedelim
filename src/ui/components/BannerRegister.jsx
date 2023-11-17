@@ -6,12 +6,12 @@ export const Banner = () => {
     return (
         <div className="banner">
             <img src={banner} alt="" />
-            <Link 
+            {/* <Link 
                 className="navbar-brand" 
                 to="/register"
-            >
+            > */}
                 <button>Registro</button>
-            </Link>
+            {/* </Link> */}
         </div>
     );
 };
