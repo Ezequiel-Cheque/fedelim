@@ -3,7 +3,11 @@ import Swal from 'sweetalert2';
 
 const findUser = async (email) => {
     // busca si el usuario ya esta registrado
-    const user = await fetch(base_api + "/users/get/email/" + email);
+    const user = await fetch(base_api + "/users/get/email/" + email, {
+        headers: {
+            "mode": 'no-cors'
+        }
+    });
     if (user.status == 200) {
         const res = await user.json();
         return {
@@ -25,7 +29,11 @@ const findUser = async (email) => {
 
 const registerUser = async (payload) => {
     // busca si el usuario ya esta registrado
-    const user = await fetch(base_api + "/users/get/email/" + payload.email);
+    const user = await fetch(base_api + "/users/get/email/" + payload.email, {
+        headers: {
+            mode: 'no-cors'
+        }
+    });
     if (user.status == 200) {
         Swal.fire({
             title: "Error",
@@ -45,7 +53,8 @@ const registerUser = async (payload) => {
         body: JSON.stringify(payload),
         headers: {
             "content-type": "application/json",
-            "accept": "application/json"
+            "accept": "application/json",
+            "mode": 'no-cors'
         }
     });
     if (response.status == 200) {
@@ -72,7 +81,8 @@ const deleteUser = async (user_id) => {
     const delete_user = await fetch(url, {
         method: "DELETE",
         headers: {
-            'accept': 'application/json'
+            'accept': 'application/json',
+            "mode": 'no-cors'
         }
     });
     if (delete_user.status == 200) {
