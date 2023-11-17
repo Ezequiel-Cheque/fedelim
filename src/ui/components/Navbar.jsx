@@ -1,8 +1,8 @@
 import { Link} from 'react-router-dom';
 import "../../style/navbar.css"
+import logo from "../../../images/fede_logo.png";
 
 export const Navbar = () => {
-    const logo = "fede_logo";
 
     const myFunction = () => {
         const x = document.getElementById("myLinks");
@@ -23,7 +23,7 @@ export const Navbar = () => {
                                 className="navbar-brand" 
                                 to="/"
                             >
-                                <img src={`/images/${ logo }.png`} alt="" />
+                                <img src={logo} alt="" />
                             </Link>
                         </div>
                         <div className="div-title">

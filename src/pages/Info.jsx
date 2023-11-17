@@ -1,11 +1,12 @@
 import "../style/info.css";
+import elim from "../../images/elim_square.png";
 
 export const Info = () => {
     return(
         <div className="info-container">
             <div className="div-info">
                 <div className="logo-info">
-                    <img src="/images/elim_square.png" alt="" />
+                    <img src={elim} alt="" />
                 </div>
                 <div className="info-text">
                     <p>

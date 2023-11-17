@@ -1,5 +1,5 @@
 .countdown-container {
-    background-image: linear-gradient(to right, rgba(109, 179, 242, .2), rgba(109, 179, 242, .2)), url("/images/camp.jpg");
+    background-image: linear-gradient(to right, rgba(109, 179, 242, .2), rgba(109, 179, 242, .2)), url("../../images/camp.jpg");
     background-repeat: no-repeat;
     background-position: 25% 80%;
     background-size: cover;

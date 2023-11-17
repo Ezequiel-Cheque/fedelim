@@ -1,4 +1,15 @@
 import "../../style/album.css";
+import camp1 from "../../../images/instalaciones/camp1.png";
+import camp2 from "../../../images/instalaciones/camp2.png";
+import camp3 from "../../../images/instalaciones/camp3.png";
+import camp4 from "../../../images/instalaciones/camp4.png";
+import camp5 from "../../../images/instalaciones/camp5.png";
+import camp6 from "../../../images/instalaciones/camp6.png";
+import camp7 from "../../../images/instalaciones/camp7.png";
+import camp8 from "../../../images/instalaciones/camp8.png";
+import camp9 from "../../../images/instalaciones/camp9.png";
+import camp10 from "../../../images/instalaciones/camp11.png";
+
 
 export const Album = () => {
     
@@ -27,16 +38,16 @@ export const Album = () => {
     return (
         <div className="album-section">
             <div className="album-container">
-                <img className="myImg" src="/images/instalaciones/camp1.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp2.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp3.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp4.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp5.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp6.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp7.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp8.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp9.png" onClick={handleImage} alt="Instalaciones campo David" />
-                <img className="myImg" src="/images/instalaciones/camp11.png" onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp1} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp2} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp3} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp4} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp5} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp6} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp7} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp8} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp9} onClick={handleImage} alt="Instalaciones campo David" />
+                <img className="myImg" src={camp10} onClick={handleImage} alt="Instalaciones campo David" />
             </div>
             
             <div id="myModal" className="modal">
