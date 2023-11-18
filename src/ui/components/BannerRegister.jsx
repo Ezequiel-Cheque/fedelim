@@ -11,7 +11,7 @@ export const Banner = () => {
                 to="/register"
             > */}
             {/* </Link> */}
-            <a href="https://forms.gle/jCN12BA3W6nkANLE6" target="_blank">
+            <a style={{textDecoration: "none"}} href="https://forms.gle/jCN12BA3W6nkANLE6" target="_blank">
                 <button>Registro</button>
             </a>
         </div>
